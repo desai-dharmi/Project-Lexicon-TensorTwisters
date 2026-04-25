@@ -1,0 +1,217 @@
+/* ═══════════════════════════════════════════════════════════════
+   BLOCK — Individual block card on the canvas
+   ═══════════════════════════════════════════════════════════════ */
+
+.canvas-block {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  transition: all var(--duration-normal) var(--ease-out);
+  animation: dropIn var(--duration-slow) var(--ease-spring) both;
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+  box-shadow: 0 0 10px rgba(108, 99, 255, 0.1);
+}
+
+.canvas-block::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-out);
+  pointer-events: none;
+}
+
+.canvas-block:hover {
+  border-color: var(--border-default);
+  box-shadow: var(--shadow-md), 0 8px 24px rgba(0,0,0,0.2), 0 0 20px rgba(108, 99, 255, 0.25);
+  transform: translateY(-2px) perspective(800px) rotateX(1deg);
+}
+
+.canvas-block:hover::before {
+  opacity: 1;
+}
+
+.canvas-block.selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent), var(--shadow-glow);
+}
+
+.canvas-block.dragging {
+  opacity: 0.4;
+  transform: scale(0.97);
+}
+
+.canvas-block.drag-over-top {
+  border-top: 2px solid var(--accent);
+}
+
+.canvas-block.drag-over-bottom {
+  border-bottom: 2px solid var(--accent);
+}
+
+/* Color stripe on left */
+.block-stripe {
+  width: 4px;
+  min-width: 4px;
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  flex-shrink: 0;
+}
+
+/* Drag handle */
+.block-drag-handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  min-width: 28px;
+  cursor: grab;
+  color: var(--text-tertiary);
+  transition: color var(--duration-fast) var(--ease-out);
+  flex-shrink: 0;
+  user-select: none;
+  touch-action: none;
+}
+
+.block-drag-handle:hover {
+  color: var(--text-secondary);
+}
+
+.block-drag-handle:active {
+  cursor: grabbing;
+}
+
+.block-drag-handle svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Main content area */
+.block-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-md) var(--space-md) var(--space-md) 0;
+  min-width: 0;
+}
+
+.block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+}
+
+.block-type-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.block-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.canvas-block:hover .block-actions {
+  opacity: 1;
+}
+
+.block-action-btn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.block-action-btn:hover {
+  background: var(--surface-glass-hover);
+  color: var(--text-primary);
+}
+
+.block-action-btn.delete:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--error);
+}
+
+/* Content input */
+.block-content-input {
+  width: 100%;
+  min-height: 36px;
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  resize: vertical;
+  outline: none;
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.block-content-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.block-content-input:focus {
+  border-color: var(--border-strong);
+}
+
+/* Type-specific backgrounds */
+.canvas-block[data-type="role"] { background: rgba(var(--color-role-rgb), 0.05); }
+.canvas-block[data-type="role"]::before { background: radial-gradient(ellipse at top left, rgba(var(--color-role-rgb), 0.08), transparent 70%); }
+.canvas-block[data-type="role"] .block-stripe { background: var(--color-role); }
+.canvas-block[data-type="role"] .block-type-badge { background: rgba(var(--color-role-rgb), 0.12); color: var(--color-role); }
+
+.canvas-block[data-type="context"] { background: rgba(var(--color-context-rgb), 0.05); }
+.canvas-block[data-type="context"]::before { background: radial-gradient(ellipse at top left, rgba(var(--color-context-rgb), 0.08), transparent 70%); }
+.canvas-block[data-type="context"] .block-stripe { background: var(--color-context); }
+.canvas-block[data-type="context"] .block-type-badge { background: rgba(var(--color-context-rgb), 0.12); color: var(--color-context); }
+
+.canvas-block[data-type="constraint"] { background: rgba(var(--color-constraint-rgb), 0.05); }
+.canvas-block[data-type="constraint"]::before { background: radial-gradient(ellipse at top left, rgba(var(--color-constraint-rgb), 0.08), transparent 70%); }
+.canvas-block[data-type="constraint"] .block-stripe { background: var(--color-constraint); }
+.canvas-block[data-type="constraint"] .block-type-badge { background: rgba(var(--color-constraint-rgb), 0.12); color: var(--color-constraint); }
+
+.canvas-block[data-type="format"] { background: rgba(var(--color-format-rgb), 0.05); }
+.canvas-block[data-type="format"]::before { background: radial-gradient(ellipse at top left, rgba(var(--color-format-rgb), 0.08), transparent 70%); }
+.canvas-block[data-type="format"] .block-stripe { background: var(--color-format); }
+.canvas-block[data-type="format"] .block-type-badge { background: rgba(var(--color-format-rgb), 0.12); color: var(--color-format); }
+
+.canvas-block[data-type="tone"] { background: rgba(var(--color-tone-rgb), 0.05); }
+.canvas-block[data-type="tone"]::before { background: radial-gradient(ellipse at top left, rgba(var(--color-tone-rgb), 0.08), transparent 70%); }
+.canvas-block[data-type="tone"] .block-stripe { background: var(--color-tone); }
+.canvas-block[data-type="tone"] .block-type-badge { background: rgba(var(--color-tone-rgb), 0.12); color: var(--color-tone); }
+
+.canvas-block[data-type="example"] { background: rgba(var(--color-example-rgb), 0.05); }
+.canvas-block[data-type="example"]::before { background: radial-gradient(ellipse at top left, rgba(var(--color-example-rgb), 0.08), transparent 70%); }
+.canvas-block[data-type="example"] .block-stripe { background: var(--color-example); }
+.canvas-block[data-type="example"] .block-type-badge { background: rgba(var(--color-example-rgb), 0.12); color: var(--color-example); }
+
+.canvas-block[data-type="output_length"] { background: rgba(var(--color-output_length-rgb), 0.05); }
+.canvas-block[data-type="output_length"]::before { background: radial-gradient(ellipse at top left, rgba(var(--color-output_length-rgb), 0.08), transparent 70%); }
+.canvas-block[data-type="output_length"] .block-stripe { background: var(--color-output_length); }
+.canvas-block[data-type="output_length"] .block-type-badge { background: rgba(var(--color-output_length-rgb), 0.12); color: var(--color-output_length); }

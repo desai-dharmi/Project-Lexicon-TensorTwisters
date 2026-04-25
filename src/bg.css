@@ -1,0 +1,48 @@
+/* ═══════════════════════════════════════════════════════════════
+   BG.CSS — Cinematic Background Layer Styles
+   Positions canvas + glow behind all UI content
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Container ────────────────────────────────────────────── */
+.cb-container {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* ─── Canvas ───────────────────────────────────────────────── */
+.cb-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ─── Cursor Glow ──────────────────────────────────────────── */
+.cb-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: opacity 0.35s ease-out;
+
+  /* Multi-stop radial for a soft, natural glow */
+  background: radial-gradient(
+    circle at center,
+    rgba(108, 99, 255, 0.18) 0%,
+    rgba(127, 90, 240, 0.10) 30%,
+    rgba(0, 194, 255, 0.04) 60%,
+    transparent 100%
+  );
+
+  /* Extra blur for dreamy feel */
+  filter: blur(30px);
+}

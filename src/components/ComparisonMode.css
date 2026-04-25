@@ -1,0 +1,192 @@
+/* ═══════════════════════════════════════════════════════════════
+   COMPARISON MODE — A/B diff split view
+   ═══════════════════════════════════════════════════════════════ */
+
+.comparison-panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.comparison-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.comparison-header h3 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+}
+
+.comparison-toggle-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.comparison-toggle-chip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-glass);
+  color: var(--text-secondary);
+  transition: all var(--duration-fast) var(--ease-out);
+  user-select: none;
+}
+
+.comparison-toggle-chip:hover {
+  border-color: var(--border-default);
+}
+
+.comparison-toggle-chip.excluded {
+  opacity: 0.4;
+  text-decoration: line-through;
+}
+
+.comparison-toggle-chip .chip-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.comparison-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.comparison-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: var(--space-lg);
+}
+
+.comparison-side:first-child {
+  border-right: 1px solid var(--border-subtle);
+}
+
+.comparison-side-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.comparison-side-label .label-badge {
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  font-size: 0.6rem;
+}
+
+.label-badge.full {
+  background: rgba(var(--accent-rgb), 0.15);
+  color: var(--accent);
+}
+
+.label-badge.variant {
+  background: rgba(249, 115, 22, 0.15);
+  color: var(--color-tone);
+}
+
+.comparison-text {
+  font-size: 0.78rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.comparison-empty {
+  color: var(--text-tertiary);
+  font-size: 0.78rem;
+  font-style: italic;
+}
+
+/* Diff highlighting */
+.diff-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--border-subtle);
+  overflow-y: auto;
+  padding: var(--space-lg);
+}
+
+.diff-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-md);
+}
+
+.diff-output {
+  font-size: 0.78rem;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: var(--font-mono);
+}
+
+.diff-add {
+  background: var(--diff-add);
+  color: var(--diff-add-text);
+  padding: 1px 2px;
+  border-radius: 2px;
+}
+
+.diff-remove {
+  background: var(--diff-remove);
+  color: var(--diff-remove-text);
+  text-decoration: line-through;
+  padding: 1px 2px;
+  border-radius: 2px;
+}
+
+.diff-same {
+  color: var(--text-secondary);
+}
+
+.diff-stats {
+  display: flex;
+  gap: var(--space-lg);
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+}
+
+.diff-stat-add {
+  color: var(--diff-add-text);
+}
+
+.diff-stat-remove {
+  color: var(--diff-remove-text);
+}

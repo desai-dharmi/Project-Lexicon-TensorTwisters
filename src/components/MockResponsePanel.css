@@ -1,0 +1,125 @@
+/* ═══════════════════════════════════════════════════════════════
+   MOCK RESPONSE PANEL — Simulated AI output
+   ═══════════════════════════════════════════════════════════════ */
+
+.mock-response-panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.mock-response-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.mock-response-header h3 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.quality-badge {
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.quality-badge.excellent {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--success);
+}
+
+.quality-badge.good {
+  background: rgba(74, 144, 255, 0.15);
+  color: var(--color-role);
+}
+
+.quality-badge.basic {
+  background: rgba(234, 179, 8, 0.15);
+  color: var(--warning);
+}
+
+.quality-badge.minimal {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--error);
+}
+
+.quality-badge.none {
+  background: var(--surface-glass);
+  color: var(--text-tertiary);
+}
+
+.mock-response-score {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+}
+
+.score-bar {
+  width: 60px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.score-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width var(--duration-slow) var(--ease-out);
+}
+
+.mock-response-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-lg);
+}
+
+.mock-response-text {
+  font-size: 0.78rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.mock-response-text h2 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.mock-response-text h3 {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
+}
+
+.mock-response-typing {
+  display: inline-block;
+  width: 2px;
+  height: 14px;
+  background: var(--accent);
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
+}
