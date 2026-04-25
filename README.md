@@ -1,153 +1,54 @@
+# Project Lexicon - TensorTwisters
 
+**Project Lexicon** is a premium, visual prompt engineering toolkit built with modern React. It provides an intuitive interface for professionals and enthusiasts to visually compose, compare, and analyze prompts for Large Language Models (LLMs) through a high-fidelity cinematic UI.
 
-# ⚡ Project Lexicon
-
-**Project Lexicon** is an interactive AI prompt-building platform that allows users to visually construct structured prompts using modular blocks. It simplifies prompt engineering by providing a drag-and-drop interface with real-time preview and response simulation.
-
----
-
-## 🚀 Key Features
-
-### 🧩 Block-Based Prompt Builder
-
-* Drag-and-drop blocks to create prompts visually
-* Available block types:
-
-  * **Role** – Define AI persona
-  * **Context** – Provide background information
-  * **Constraint** – Set rules and limitations
-  * **Format** – Specify output structure
-  * **Tone** – Control communication style
-  * **Example** – Provide sample outputs
-  * **Output Length** – Define response size
+## 👥 Project Creators
+This project was conceptualized and developed by the **TensorTwisters** team:
+- **Dharmi Desai**
+- **Mihir Doshi**
+- **Shravani Dhuri**
 
 ---
 
-### 🎨 Composition Canvas
+## 🌟 Key Features
 
-* Central workspace to arrange and customize prompt blocks
-* Reorder and edit blocks dynamically
-* Clean and intuitive UI for structured prompt creation
+### 🏗️ Visual Prompt Composition
+- **Composition Canvas:** A dynamic, interactive workspace to assemble, arrange, and design prompt structures efficiently.
+- **Block Palette:** A reusable collection of predefined modular prompt building blocks to speed up prompt creation logic (e.g., Context, Directives, Format rules).
 
----
+### 🔍 Advanced Iteration & Analysis
+- **Comparison Mode:** Side-by-side analysis of multiple prompts to test variations in wording and intent.
+- **Diff Engine:** Built-in differential engine highlighting exact structural and wording changes between prompt versions to see the exact impact on responses.
+- **History Sidebar:** Built-in history tracking mechanism allowing you to roll back to previous iterations and audit changes easily.
 
-### ⚡ Live Preview
+### ⚡ Execution & Simulation
+- **Prompt Compiler:** Automatically translates visual prompt blocks into properly structured textual prompt strings ready for LLM consumption.
+- **Mock Response Panel:** An integrated simulation panel providing realistic mock answers generated from prompt variations to validate their effectiveness without incurring API costs.
 
-* Real-time preview of the compiled prompt
-* Instantly see how your prompt is being constructed
-
----
-
-### 🤖 AI Response Simulation
-
-* Simulated AI response based on added blocks
-* Helps users test prompt effectiveness before actual use
-
----
-
-### 🔄 Versioning & Comparison
-
-* **Compare** prompts to analyze differences
-* **Diff View** to track changes between versions
-
----
-
-### 🕘 History Tracking
-
-* Maintain a history of previously created prompts
-* Easily revisit and reuse past work
-
----
-
-### 💾 Save & Load सिस्टम
-
-* Save prompt configurations
-* Load previously saved prompts anytime
-
----
-
-### 📤 Export & Snapshot
-
-* Export prompts for external use
-* Take snapshots of prompt states
-
----
-
-### 📋 Copy Functionality
-
-* One-click copy for generated prompts
+### 🎨 Premium User Experience
+- **Cinematic UI/UX:** Built with a stunning dark-mode-first aesthetic, utilizing glassmorphism, fluid micro-animations, and dynamic particle background rendering for an immersive experience.
+- **Keyboard Shortcuts (Power User Support):** A comprehensive suite of keyboard shortcuts allowing rapid iteration, component toggling, and fast navigation.
 
 ---
 
 ## 🛠️ Tech Stack
-
-* **Frontend:** React
-* **Build Tool:** Vite
-* **UI Design:** Custom modern UI (Dark theme)
-* **State Management:** (Add if used – e.g., Context API / Redux)
-
----
-
-## 📂 Project Structure
-
-```bash
-project-lexicon/
-│── public/
-│── src/
-│   ├── components/
-│   ├── blocks/
-│   ├── canvas/
-│   ├── preview/
-│   ├── App.jsx
-│   ├── main.jsx
-│── index.html
-│── package.json
-│── vite.config.js
-```
+- Frontend Framework: **React 19**
+- Build Tool: **Vite**
+- Styling: Custom highly-responsive **Vanilla CSS** natively supporting fluid design
+- State Management: **Native React Context API & useReducer**
 
 ---
 
-## ⚙️ Getting Started
+## 🚀 Getting Started
+
+To run the project locally, run the following commands:
 
 ```bash
 # Install dependencies
 npm install
 
-# Run development server
+# Start the development server
 npm run dev
 ```
 
----
-
-## 📦 Build
-
-```bash
-npm run build
-```
-
----
-
-## 👩‍💻 Contributors
-
-* Dharmi Desai
-* Shravani Dhuri
-* Mihir Doshi
-
----
-
-## 🌟 Future Scope
-
-* Real AI API integration (OpenAI / others)
-* Prompt sharing community
-* Templates marketplace
-* Collaboration features
-
----
-
-## 📄 License
-
-This project is built for learning, innovation, and experimentation.
-
----
-
-
+Then visit the provided localhost link in your browser to experience Project Lexicon.
