@@ -229,3 +229,41 @@
   animation: pulse 1.5s ease-in-out infinite;
   z-index: 10;
 }
+
+/* ─── Responsive Media Queries ─────────────────────────────── */
+@media (max-width: 900px) {
+  .app-header {
+    padding: 0 var(--space-md);
+  }
+  .app-logo-text {
+    display: none;
+  }
+  .app-logo-badge {
+    display: none;
+  }
+  .app-layout {
+    flex-direction: column;
+    height: auto;
+    min-height: calc(100vh - 58px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .right-panel {
+    width: 100%;
+    min-width: unset;
+    border-left: none;
+    border-top: 1px solid var(--border-subtle);
+    height: 600px;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header-actions .header-btn span {
+    display: none; /* Hide text, keep icons if they exist, wait they use emojis */
+  }
+  .header-btn {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+}

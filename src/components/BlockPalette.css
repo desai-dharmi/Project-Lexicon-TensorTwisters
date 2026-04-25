@@ -193,3 +193,39 @@
   color: var(--text-primary);
   backdrop-filter: blur(20px);
 }
+
+/* ─── Responsive Media Queries ─────────────────────────────── */
+@media (max-width: 900px) {
+  .block-palette {
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    max-height: max-content;
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+    flex-shrink: 0;
+  }
+  .palette-blocks {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: var(--space-md) var(--space-lg);
+    gap: var(--space-md);
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  .palette-block {
+    flex-shrink: 0;
+    width: 220px;
+    margin-bottom: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .palette-block {
+    width: 180px;
+    padding: 10px var(--space-md);
+  }
+  .palette-block .block-label {
+    font-size: 0.85rem;
+  }
+}
